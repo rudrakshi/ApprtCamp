@@ -16,7 +16,7 @@ else {
     $background = $user->profile_background_image_url_https;
     $fillColor = $user->profile_sidebar_fill_color;
     $profileBackgnd = $user->profile_background_color;
-    $fontColor=$user->profile_text_color;
+ 
     ?>
     <!DOCTYPE html>
     <html>
@@ -34,7 +34,7 @@ else {
             <script src="js/ApprtCamp.js" charset="utf-8"></script>
 
         </head>
-        <body style="background:url('<?php echo $background; ?>')  no-repeat ;color: #<?php echo $fontColor;?>;background-color:#<?php echo $profileBackgnd; ?>; ">
+        <body style="background:url('<?php echo $background; ?>')  no-repeat ;background-color:#<?php echo $profileBackgnd; ?>; ">
             <div id="container">
                 <?php
                 if (!empty($user)) {

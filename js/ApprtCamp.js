@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 function getHomeTweets()
 {
-   
+    $('#slideshow').html('<center><img src="images/328.gif"></center>');
     $.ajax({
           url:'core/getHomeTweets.php',
           success: function(data){
@@ -44,7 +44,8 @@ function getHomeTweets()
 }
 function getUserTweets(user_name)
 {
-  
+    $('#slideshow').html('<center><img src="images/328.gif"></center>');
+   
     $.ajax({
         url: "core/getUserTimelineTweets.php",
         type: "POST",
@@ -64,9 +65,21 @@ function getUserTweets(user_name)
 
 function slide()
 {
-     $('#myCarousel').carousel({});
+     $('#myCarousel').carousel({interval: 10000});
     
 }
 
+function showOptns()
+{
+   document.getElementById("download").style.display='block';
+   document.getElementById("show").style.display='none';
+}
+
+function hideOptns()
+{
+    document.getElementById("download").style.display='none';
+    document.getElementById("show").style.display='';
+   
+}
 
 
