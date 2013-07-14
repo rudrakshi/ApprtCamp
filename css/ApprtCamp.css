@@ -1,0 +1,95 @@
+/* 
+    Document   : ApprtCamp
+    Created on : Jun 10, 2013, 4:16:54 PM
+    Author     : Rudrakshi
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { ... }
+
+root { 
+    display: block; 
+   
+}
+body{
+    
+}
+#welcome{
+    color: #999999;
+    padding-top: 5%;
+}
+#name-box{
+    border-right: 1px solid white;
+}
+#flwr-space{
+    height:10px;
+}
+#loading{
+    display:table-cell;
+    width:950px;
+    height:633px;
+    background:#fff;
+    text-align:center;
+    vertical-align:middle;
+}
+#download badge{ 
+    height:24px; 
+       line-height:24px;
+}
+#twitter-data{
+    padding-top: 8%;
+    
+}
+
+.tweet{
+    background-color: whitesmoke;
+    border: 1px solid black;
+    -webkit-border-radius: 10px;
+    -moz-border-radius:10px;
+    padding:5%;
+}
+
+#followers{
+    padding: 1%;
+    border: 1px solid black;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+}
+
+#slideshow{
+    min-height: 125px; 
+    padding: 1%; 
+    border: 1px solid black; 
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+}
+#myCarousel{
+    padding-top: 5%;
+}
+img
+{
+    border: 2px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius:8px;
+}
+.box{
+   
+    padding: 1%; 
+    border: 1px solid black; 
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+}
+.span3,.span6{
+    margin-bottom: 2%;
+}
