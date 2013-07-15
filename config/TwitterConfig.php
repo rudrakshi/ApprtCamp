@@ -2,7 +2,7 @@
 $apiConfig=array(
     'client_id'=>'555190471060.apps.googleusercontent.com',
     'client_secret'=>'FRhRU3F4cnmgMu_CsyIKvkNl',
-    'client_uri'=>'http://localhost/ApprtCamp/',
+    'client_uri'=>'http://'.$_SERVER['HTTP_HOST'].'/ApprtCamp/',
    // 'developer_key'=>
 );
         

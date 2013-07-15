@@ -12,7 +12,7 @@ $here = tmhUtilities::php_self();
 
 function outputError($tmhOAuth) {
     //echo 'Error: ' . $tmhOAuth->response['response'] . PHP_EOL;
-    include 'error.php';
+    header('Location: error.php');
 }
 ?>
 <html>

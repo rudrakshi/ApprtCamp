@@ -59,7 +59,7 @@ else {
                                         </li>
 
                                     </ul><ul class="nav pull-right">
-                                        <li><a href="www.github.com" target="blank">Fork Me</a></li>
+                                        <li><a href="https://github.com/rudrakshi/ApprtCamp" target="blank">Fork Me</a></li>
                                         <li><a href="logout.php?wipe=1">Sign out</a></li>
                                     </ul>
                                 </div>
@@ -100,7 +100,7 @@ else {
                                     <h5>Someone Missing?</h5>
                                     <div class="input-prepend">
                                         <span class="add-on">@</span>
-                                        <input id="follower" name="follower" class="span9" id="prependedInput" type="text" placeholder="Username" data-provide="typeahead" />
+                                        <input id="follower" class="input-prepend" name="follower" type="text" placeholder="Username" data-provide="typeahead" />
                                     </div>
                                 </div> 
                                 <div>

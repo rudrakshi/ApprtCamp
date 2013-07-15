@@ -13,6 +13,7 @@
     padding: 1%;   
     border: 1px solid black; 
     -webkit-border-radius:10px;
+    -moz-border-radius:10px;
     background-color: whitesmoke;
 }
         </style>
@@ -23,7 +24,7 @@
             <div class="row-fluid" style="padding-top: 50px;">
                 <div class="error-box span4 offset4">
                     <center>
-                   Sorry... There seems to be some problem with your internet connection... Please try again later..
+                   Sorry... There seems to be some problem with the connection... Please try again later..
                    </center>
                 </div>
             </div>

@@ -99,7 +99,7 @@ try {
                                 <?php } ?>
                                         <div class="container-fluid">
                                             <div class="tweet container-fluid">
-                                                <div ><strong>Retweet</strong></div><br>
+                                                <div ><h4><strong>Retweet</strong></h4></div><br>
                                                 <div class="row-fluid">
                                                     <h4><div class="span2">
                                                             <img src='<?php echo $tweet->retweeted_status->user->profile_image_url_https ?>' >
@@ -139,11 +139,60 @@ try {
             ?>
                  ">
                 <center>
-                    <a id="show"class="btn btn-primary" href="core/getFile.php">
+                    <button id="show"class="btn btn-primary" onclick="showOptns();">
                         Download Tweets
-                    </a>
+                    </button>
                 </center>
-              
+                <div id="download" style="display: none">
+                    <div class="container-fluid">
+                        <form action="core/getFile.php">
+                            <div class="row-fluid">
+                                <div class="span3">
+                                    <span class="badge badge-info">
+                                        <input type="radio" name="typeDwnld" value="pdf" checked="checked">PDF
+                                        </input>
+                                    </span>
+                                </div>
+                                <div class="span3">
+                                    <span class="badge badge-info">
+                                        <input type="radio" name="typeDwnld" value="csv">csv
+                                        </input>
+                                    </span>
+                                </div>
+                                <div class="span3">
+                                    <span class="badge badge-info">
+                                        <input type="radio" name="typeDwnld" value="xml">XML
+                                        </input>
+                                    </span>
+                                </div>
+                                <div class="span3">
+                                    <span class="badge badge-info">
+                                        <input type="radio" name="typeDwnld" value="json">JSON
+                                        </input>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span3">
+                                    <span class="badge badge-info">
+                                        <input type="radio" name="typeDwnld" value="xls">Excel
+                                        </input>
+                                    </span>
+                                </div>
+                                <div class="span9">
+                                    <span class="badge badge-info">
+                                        <input type="radio" name="typeDwnld" value="google">Google Drive
+                                        </input>
+                                    </span>
+                                </div>
+                            </div>
+                            <div> 
+                                <button class="btn btn-success" >Download File</button>&nbsp;
+                                <button type="button" class="btn btn-danger " onclick="hideOptns()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
     <?php
 } catch (Exception $e) {
@@ -153,25 +202,25 @@ try {
 function getLink($text, $ent) {
     foreach ($ent->urls as $url) {
         $from = $url->url;
-        $to = "<a href=" . $url->expanded_url . " target=_blank>" . $url->display_url . "</a>";
+        $to = "<a href=" . $url->expanded_url . " target=blank>" . $url->display_url . "</a>";
         $text = str_replace($from, $to, $text);
     }
 
     if (isset($ent->media)) {
         foreach ($ent->media as $media) {
             $from = $media->url;
-            $to = "<a href=" . $media->url . " target=_blank>" . $media->display_url . "</a>";
+            $to = "<a href=" . $media->url . " target=blank>" . $media->display_url . "</a>";
             $text = str_replace($from, $to, $text);
         }
     }
 
     if ($text) {
         $pattern = '/\@([a-zA-Z0-9_]+)/';
-        $replace = '<a href=http://twitter.com/\1\ target=_blank>@\1</a>';
+        $replace = '<a href=http://twitter.com/\1\ target=blank>@\1</a>';
         $text = preg_replace($pattern, $replace, $text);
 
         $pattern = '/\#([a-zA-Z0-9_]+)/';
-        $replace = '<a href=http://twitter.com/search?q=#\1&src=hash\ target=_blank>#\1</a>';
+        $replace = '<a href=http://twitter.com/search?q=\1 target=blank>#\1</a>';
         $text = preg_replace($pattern, $replace, $text);
     }
 
@@ -180,7 +229,6 @@ function getLink($text, $ent) {
 
 function outputError($tmhOAuth) {
     //echo 'Error: ' . $tmhOAuth->response['response'] . PHP_EOL;
-    //include '../error.php';
     header("location: error.php");
 }
 ?>

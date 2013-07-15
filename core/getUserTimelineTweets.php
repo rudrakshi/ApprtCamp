@@ -101,7 +101,7 @@ try {
                                                     <?php } ?>
                                                             <div class="container-fluid">
                                                                 <div class="tweet container-fluid">
-                                                                    <div ><strong>Retweet</strong></div><br>
+                                                                    <div ><h4><strong>Retweet</strong></h4></div><br>
                                                                     <div class="row-fluid">
                                                                         <h4><div class="span2">
                                                                                 <img src='<?php echo $tweet->retweeted_status->user->profile_image_url_https ?>'>
@@ -136,25 +136,25 @@ try {
 function getLink($text, $ent) {
     foreach ($ent->urls as $url) {
         $from = $url->url;
-        $to = "<a href=" . $url->expanded_url . " target=_blank>" . $url->display_url . "</a>";
+        $to = "<a href=" . $url->expanded_url . " target=blank>" . $url->display_url . "</a>";
         $text = str_replace($from, $to, $text);
     }
 
     if (isset($ent->media)) {
         foreach ($ent->media as $media) {
             $from = $media->url;
-            $to = "<a href=" . $media->url . " target=_blank>" . $media->display_url . "</a>";
+            $to = "<a href=" . $media->url . " target=blank>" . $media->display_url . "</a>";
             $text = str_replace($from, $to, $text);
         }
     }
 
     if ($text) {
         $pattern = '/\@([a-zA-Z0-9_]+)/';
-        $replace = '<a href=http://twitter.com/\1\ target=_blank>@\1</a>';
+        $replace = '<a href=http://twitter.com/\1\ target=blank>@\1</a>';
         $text = preg_replace($pattern, $replace, $text);
 
         $pattern = '/\#([a-zA-Z0-9_]+)/';
-        $replace = '<a href=http://twitter.com/search?q=#\1&src=hash\ target=_blank>#\1</a>';
+        $replace = '<a href=http://twitter.com/search?q=\1 target=blank>#\1</a>';
         $text = preg_replace($pattern, $replace, $text);
     }
 
