@@ -25,15 +25,15 @@ $apiConfig = array(
     'application_name' => 'ApprtCamp',
 
     // OAuth2 Settings, you can get these keys at https://code.google.com/apis/console
-    'oauth2_client_id' => '555190471060.apps.googleusercontent.com',
-    'oauth2_client_secret' => 'FRhRU3F4cnmgMu_CsyIKvkNl',
-    'oauth2_redirect_uri' => 'http://'.$_SERVER['HTTP_HOST'].'/ApprtCamp/core/createGoogleSpreadsheet.php',
+    'oauth2_client_id' => '',
+    'oauth2_client_secret' => '',
+    'oauth2_redirect_uri' => 'http://'.$_SERVER['HTTP_HOST'].'/core/createGoogleSpreadsheet.php',
 
     // The developer key, you get this at https://code.google.com/apis/console
-    'developer_key' => 'AIzaSyAU9-udpSTXSXWVJCIK8n8aHT6HoWwaJgo',
+    'developer_key' => '',
   
     // Site name to show in the Google's OAuth 1 authentication screen.
-    'site_name' => 'http://'.$_SERVER['HTTP_HOST'].'/ApprtCamp/',
+    'site_name' => 'http://'.$_SERVER['HTTP_HOST'],
 
     // Which Authentication, Storage and HTTP IO classes to use.
     'authClass'    => 'Google_OAuth2',
