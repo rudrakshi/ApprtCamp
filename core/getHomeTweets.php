@@ -139,60 +139,11 @@ try {
             ?>
                  ">
                 <center>
-                    <button id="show"class="btn btn-primary" onclick="showOptns();">
+                    <a id="show"class="btn btn-primary" href="core/getFile.php">
                         Download Tweets
-                    </button>
+                    </a>
                 </center>
-                <div id="download" style="display: none">
-                    <div class="container-fluid">
-                        <form action="core/getFile.php">
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="pdf" checked="checked">PDF
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="csv">csv
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="xml">XML
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="json">JSON
-                                        </input>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="xls">Excel
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span9">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="google">Google Drive
-                                        </input>
-                                    </span>
-                                </div>
-                            </div>
-                            <div> 
-                                <button class="btn btn-success" >Download File</button>&nbsp;
-                                <button type="button" class="btn btn-danger " onclick="hideOptns()">Cancel</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+              
             </div>
     <?php
 } catch (Exception $e) {
