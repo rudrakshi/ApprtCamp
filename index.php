@@ -70,11 +70,11 @@ else {
                         <div class="row-fluid">  
                             <div class="box span3" style="background-color: #<?php echo $fillColor; ?>">
                                 <div align="center" class="row-fluid">
-                                    <div class="span3">
+                                    <div class="span12">
 
                                         <a href='#' class="home"><img class="img-polaroid" src='<?php echo $user->profile_image_url; ?> ' /></a>
                                     </div>
-                                    <div class="span9">
+                                    <div class="span12">
                                         <h4><strong><?php echo $user->name ?></strong><br/>
                                             <a href="http://www.twitter.com" target="blank">@<?php echo $user->screen_name ?></a>
                                         </h4>
@@ -112,11 +112,11 @@ else {
                                         foreach ($followers->users as $follower) {
                                             if ($j < 10) {
                                                 ?>
-                                                <div align="center" class="row-fluid">
-                                                    <div class="span4">
+                                                <div class="row-fluid">
+                                                    <div class="span12">
                                                         <img class="img-polaroid" src='<?php echo $follower->profile_image_url_https ?>' />
                                                     </div>
-                                                    <div class="span8">
+                                                    <div class="span12">
                                                         <i><?php echo $follower->name ?></i><br>
                                                         <a class='ajax_class' id ='ajax_a<?php echo $j ?>' href=''>@<?php echo $follower->screen_name ?></a>
                                                     </div>

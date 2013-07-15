@@ -46,7 +46,7 @@ if ($pdfData) {
     header("Content-Disposition: attachment;Filename=" . $filename);
     readfile($filename);
     unlink($filename);
-    
+    //header("location: ../index.php");
     exit();
 }
 

@@ -144,50 +144,22 @@ try {
                     </button>
                 </center>
                 <div id="download" style="display: none">
-                    <div class="container-fluid">
+                    <div align="center" class="container-fluid">
                         <form action="core/getFile.php">
                             <div class="row-fluid">
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="pdf" checked="checked">PDF
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="csv">csv
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="xml">XML
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="json">JSON
-                                        </input>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="row-fluid">
-                                <div class="span3">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="xls">Excel
-                                        </input>
-                                    </span>
-                                </div>
-                                <div class="span9">
-                                    <span class="badge badge-info">
-                                        <input type="radio" name="typeDwnld" value="google">Google Drive
-                                        </input>
-                                    </span>
-                                </div>
+                                Choose a Type to get the Tweets:
+                                    <select name="typeDwnld">
+                                        <option value="pdf">PDF</option>
+                                        <option value="xls">Excel</option>
+                                        <option value="csv">CSV</option>
+                                        <option value="json">JSON</option>
+                                        <option value="xml">XML</option>
+                                        <option value="google">Google Drive</option>
+                                    </select>
+                               
                             </div>
                             <div> 
-                                <button class="btn btn-success" >Download File</button>&nbsp;
+                                <button class="btn btn-success" onclick="alert('Please wait your request will be processed shortly.');">Get Tweets</button>&nbsp;
                                 <button type="button" class="btn btn-danger " onclick="hideOptns()">Cancel</button>
                             </div>
                         </form>
