@@ -19,10 +19,10 @@ try {
 	
 	if (isset($_SESSION['user'])) {
         $param = array(
-           // 'user_id' => $_SESSION['user']->id,
+            'user_id' => $_SESSION['user']->id,
             'count' => 10,
         );
-        $code = $GLOBALS['tmhOAuth']->request('GET', $GLOBALS['tmhOAuth']->url('1.1/statuses/home_timeline'), $param);
+        $code = $GLOBALS['tmhOAuth']->request('GET', $GLOBALS['tmhOAuth']->url('1.1/statuses/user_timeline'), $param);
         if ($code == 200) {
             $Tweets = json_decode($GLOBALS['tmhOAuth']->response['response']);
             if (!empty($Tweets)) {
