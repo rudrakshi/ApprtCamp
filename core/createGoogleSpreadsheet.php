@@ -31,7 +31,7 @@ $createdFile = $service->files->insert($file, array(
       'mimeType' => 'text/csv',
       'convert' => true,
     ));
-
+$_SESSION['GDSLink']=$createdFile['alternateLink'];
 unlink("Tweets.csv");
 header("Location: ../index.php");
 //print_r($createdFile);

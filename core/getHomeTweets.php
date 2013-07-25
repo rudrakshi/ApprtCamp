@@ -16,6 +16,46 @@ try {
     }
 
     $pdfData = array();
+	
+	if (isset($_SESSION['user'])) {
+        $param = array(
+           // 'user_id' => $_SESSION['user']->id,
+            'count' => 10,
+        );
+        $code = $GLOBALS['tmhOAuth']->request('GET', $GLOBALS['tmhOAuth']->url('1.1/statuses/home_timeline'), $param);
+        if ($code == 200) {
+            $Tweets = json_decode($GLOBALS['tmhOAuth']->response['response']);
+            if (!empty($Tweets)) {
+                foreach ($Tweets as $tweet) {
+                    if (!isset($tweet->retweeted_status)) {
+                        $original = $tweet->text;
+                        $tweet->text = getLink($tweet->text, $tweet->entities);
+                       
+                        $GLOBALS['pdfData'][] = array(
+                            'userImg' => $tweet->user->profile_image_url_https,
+                            'userName' => $tweet->user->name,
+                            'tweetData' => $original,
+                            'dataWithLink' => $tweet->text
+                        );
+                    } else {
+                        $original = $tweet->text;
+                        $tweet->retweeted_status->text = getLink($tweet->retweeted_status->text, $tweet->retweeted_status->entities);
+                        
+                        $GLOBALS['pdfData'][] = array(
+                            'retweet' => true,
+                            'userImg' => $tweet->retweeted_status->user->profile_image_url_https,
+                            'userName' => $tweet->retweeted_status->user->name,
+                            'tweetData' => $original,
+                            'dataWithLink' => $tweet->retweeted_status->text
+                        );
+                    }
+                }
+            }
+        }
+        $_SESSION['pdf'] = json_encode($GLOBALS['pdfData']);
+    } else {
+        header("location: login.php");
+    }
     ?>
     <h4><div><center>Home Timeline</center></div></h4>
     <div id="myCarousel" class="carousel slide">
@@ -47,12 +87,7 @@ try {
                     $first = 0;
                     foreach ($Tweets as $tweet) {
                         if (!isset($tweet->retweeted_status)) {
-                            $GLOBALS['pdfData'][] = array(
-                                'userImg' => $tweet->user->profile_image_url_https,
-                                'userName' => $tweet->user->name,
-                                'tweetData' => $tweet->text
-                            );
-
+                            
                             $tweet->text = getLink($tweet->text, $tweet->entities);
                             if ($first == 0) {
                                 $first++;
@@ -81,13 +116,7 @@ try {
 
                                 <?php
                             } else {
-                                $GLOBALS['pdfData'][] = array(
-                                    'retweet' => true,
-                                    'userImg' => $tweet->retweeted_status->user->profile_image_url_https,
-                                    'userName' => $tweet->retweeted_status->user->name,
-                                    'tweetData' => $tweet->retweeted_status->text
-                                );
-
+                                
                                 $tweet->retweeted_status->text = getLink($tweet->retweeted_status->text, $tweet->retweeted_status->entities);
                                 if ($first == 0) {
                                     $first++;
@@ -117,9 +146,9 @@ try {
 
                     <?php
                 }
-                //print_r($GLOBALS['pdfData']);                
+                             
             }
-            $_SESSION['pdf'] = json_encode($GLOBALS['pdfData']);
+            
             $status = 1;
         }
     } else {
@@ -188,7 +217,7 @@ function getLink($text, $ent) {
 
     if ($text) {
         $pattern = '/\@([a-zA-Z0-9_]+)/';
-        $replace = '<a href=http://twitter.com/\1\ target=blank>@\1</a>';
+        $replace = '<a href=http://twitter.com/\1 target=blank>@\1</a>';
         $text = preg_replace($pattern, $replace, $text);
 
         $pattern = '/\#([a-zA-Z0-9_]+)/';

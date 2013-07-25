@@ -32,6 +32,7 @@ function getUserInfo() {
     if ($code == 200) {
         $user = json_decode($GLOBALS['tmhOAuth']->response['response']);
         $GLOBALS['user'] = $user;
+		 $_SESSION['user']=$user;
         return $user;
     } else {
         outputError($GLOBALS['tmhOAuth']);

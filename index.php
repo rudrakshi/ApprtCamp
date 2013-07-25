@@ -17,6 +17,10 @@ else {
     $fillColor = $user->profile_sidebar_fill_color;
     $profileBackgnd = $user->profile_background_color;
     $fontColor=$user->profile_text_color;
+	$link='';
+    if(isset($_SESSION['GDSLink'])){
+        $link=$_SESSION['GDSLink'];
+}
     ?>
     <!DOCTYPE html>
     <html>
@@ -93,8 +97,15 @@ else {
                                     </div>
                                 </div>  
                             </div>
-                            <div id="slideshow" class="slideshow-box span6" style="background-color: #<?php echo $fillColor; ?>;"></div>
-
+                            <div class="span6">
+                                <div id="slideshow" class="slideshow-box span12" style="background-color: #<?php echo $fillColor; ?>;"></div>
+                                <div>&nbsp;</div>
+                                <div id="GoogleLink" align="center"><?php
+                                    if(!empty($link)){
+                                        ?>Following is the link to your file created in Google Drive. <br><a href='<?php echo $link?>' target='blank'>Click Here</a>
+                                    <?php }
+                                ?></div>
+                            </div>
                             <div class="span3" id="followers" style="background-color: #<?php echo $fillColor; ?>;">
                                 <div class="span12" align="center">
                                     <h5>Someone Missing?</h5>

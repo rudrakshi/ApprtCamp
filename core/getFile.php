@@ -68,13 +68,13 @@ function getPDF($pdfData,$filename) {
                  $pdf->SetFont('Arial', 'B', 16);
                 $pdf->Cell(20, 10, 'Retweet', 0, 1, 'C');
             }
-            //$tweet->userImg=preg_replace("/^https:/", "http:", $tweet->userImg);
+            $tweet->userImg=preg_replace("/^https:/", "http:", $tweet->userImg);
             $pdf->Image($tweet->userImg);
              $pdf->SetFont('Arial', 'B', 16);
             $pdf->Cell(40, 10, $tweet->userName);
              $pdf->SetFont('Arial', '', 16);
             $pdf->Ln();
-            $pdf->MultiCell(180,8,$tweet->tweetData);
+            $pdf->WriteHTML($tweet->dataWithLink);
             $pdf->Ln();
         }
     }
